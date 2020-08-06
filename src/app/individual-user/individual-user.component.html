@@ -1,0 +1,117 @@
+<div class="container-fluid mb-5">
+    <h2 style="text-align: center;">Individual Epass</h2>
+    <form #induserForm = "ngForm" >
+      <!-- (ngSubmit)="onSubmit()" novalidate -->
+        {{ induserForm.values | json }}
+  
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" required #name = "ngModel" [class.is-invalid] = "name.invalid && name.touched"
+             class="form-control" name="name" [(ngModel)]="indmodel.name" >
+             <small class="text-danger" [class.d-none]="name.valid || name.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>Age:</label>
+            <input type="number" required #age="ngModel" [class.is-invalid] = "age.invalid && age.touched" 
+            class="form-control" name="age" [(ngModel)]="indmodel.age">
+            <small class="text-danger" [class.d-none]="age.valid || age.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>Guardian:</label>
+            <input type="text" required #guardian = "ngModel" [class.is-invalid] = "guardian.invalid && guardian.touched"
+             class="form-control" name="guardian" [(ngModel)]="indmodel.guardian" >
+             <small class="text-danger" [class.d-none]="guardian.valid || guardian.untouched">Required</small>
+        </div>
+  
+        <div class="mb-3">
+            <label>Gender:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" [(ngModel)]="indmodel.gender" name="gender" 
+                value="Male">
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" [(ngModel)]="indmodel.gender" name="gender" 
+                value="Female">
+                <label class="form-check-label">Female</label>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label>No.of.Travellers:</label>
+            <input type="number" required #travellers = "ngModel" [class.is-invalid] = "travellers.invalid && travellers.touched"
+             class="form-control" name="travellers" [(ngModel)]="indmodel.travellers" >
+             <small class="text-danger" [class.d-none]="travellers.valid || travellers.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>IDProof:</label>
+            <select class="custom-select" name="Idproof" [(ngModel)]="indmodel.Idproof">                
+                <option *ngFor="let Idproof of idproofs">{{Idproof}}</option>
+            </select>
+        </div>
+  
+        <div class="form-group">
+            <label>ProofNo:</label>
+            <input type="text" required #proofno = "ngModel" [class.is-invalid] = "proofno.invalid && proofno.touched"
+             class="form-control" name="proofno" [(ngModel)]="indmodel.proofno" >
+             <small class="text-danger" [class.d-none]="proofno.valid || proofno.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>Vehicle:</label>
+            <select class="custom-select" name="vehicle" [(ngModel)]="indmodel.vehicle">                
+                <option *ngFor="let vehicle of vehicles">{{vehicle}}</option>
+            </select>
+        </div>
+  
+        <div class="form-group">
+            <label>VehicleNo:</label>
+            <input type="text" required #vehicleno = "ngModel" [class.is-invalid] = "vehicleno.invalid && vehicleno.touched"
+             class="form-control" name="vehicleno" [(ngModel)]="indmodel.vehicleno" >
+             <small class="text-danger" [class.d-none]="vehicleno.valid || vehicleno.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>Reason:</label>
+            <select class="custom-select" name="reason" [(ngModel)]="indmodel.reason">                
+                <option *ngFor="let reason of reasons">{{reason}}</option>
+            </select>
+        </div>
+  
+        <div class="form-group">
+            <label>No.of.Days:</label>
+            <input type="number" required #dates = "ngModel" [class.is-invalid] = "dates.invalid && dates.touched"
+             class="form-control" name="dates" [(ngModel)]="indmodel.dates" >
+             <small class="text-danger" [class.d-none]="dates.valid || dates.untouched">Required</small>
+        </div>
+  
+        <div class="form-group">
+            <label>From-Place:</label>
+            <select class="custom-select" name="from_district" [(ngModel)]="indmodel.from_district">                
+                <option *ngFor="let from_district of districts">{{from_district}}</option>
+            </select>
+        </div>
+  
+        <div class="form-group">
+            <label>To-Place:</label>
+            <select class="custom-select" name="To_district" [(ngModel)]="indmodel.To_district">                
+                <option *ngFor="let To_district of districts">{{To_district}}</option>
+            </select>
+        </div>
+  
+        <div class="form-group">
+            <label>Address:</label>
+            <input type="text" required #To_address = "ngModel" [class.is-invalid] = "To_address.invalid && To_address.touched"
+              class="form-control" name="To_address" [(ngModel)]="indmodel.To_address" >
+            <small class="text-danger" [class.d-none]="To_address.valid || To_address.untouched">Required</small>
+        </div>
+        
+        <button [disabled]="induserForm.form.invalid" class="btn btn-primary" type="submit" (click)="onSubmit()">Submit</button>
+  
+    </form>
+  
+  </div>
+  

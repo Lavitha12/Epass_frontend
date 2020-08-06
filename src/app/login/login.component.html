@@ -1,0 +1,28 @@
+<div class="container">  
+    <div *ngIf = "afAuth.authState | async as user; else login">
+      <div class="card" style="width: 18rem;">
+          <button style="text-align: right;" (click) = "logout()" class="btn btn-primary">Logout</button>        
+      </div>
+    </div> 
+      <ng-template #login>
+       <div class="row">
+        <div class="col">
+          <form>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number(Enter with Country code)</label><br>
+              <input name="phoneNumber" [(ngModel)] = "phoneNumber" type="text" class="form-control">
+            </div>
+            <div id = "recaptcha-container"></div> <br>
+            <button class="btn btn-primary btn-block" [disabled] ="disableOTPSendButton" (click)="sendOTP()" > Send OTP </button>
+            <hr>
+            <div class="form-group">
+            <label for="otp">OTP</label>
+            <input name="otp" [(ngModel)] = "otp" type="text" class="form-control">
+            </div>
+            <button class="btn btn-primary btn-block" (click)="verifyOTP()">Verify OTP</button><br>
+            <button class="btn btn-primary btn-block" (click)="togglePhoneSignIn()">Cancel</button>
+          </form>
+        </div>
+       </div> 
+      </ng-template>
+    </div>
