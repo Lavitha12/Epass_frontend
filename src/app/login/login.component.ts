@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit,AfterViewInit {
   verifyOTP()
   {
     this.windowRef.confirmationResult.confirm(this.otp).then((userCredentials) => console.log(userCredentials));
+    this.router.navigate(['./home']);
   }
   togglePhoneSignIn()
   {
