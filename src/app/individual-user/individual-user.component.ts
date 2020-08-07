@@ -31,6 +31,8 @@ export class IndividualUserComponent implements OnInit {
   {
     let resp=this.service.indpost(this.indmodel);
     resp.subscribe((data)=>this.message=data);
+    let 
+    if()
   }
 
 }
